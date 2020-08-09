@@ -5,5 +5,7 @@ FactoryBot.define do
     user
     event
     seat_code { 'A1' }
+    row { 1 }
+    column { 1 }
   end
 end
