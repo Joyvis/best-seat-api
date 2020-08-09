@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-describe Reserve, type: :model do
+describe Reservation, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:user) }
     it { is_expected.to belong_to(:event) }
   end
 
   describe 'validatations' do
-    before { create(:reserve) }
+    before { create(:reservation) }
 
     it { is_expected.to validate_presence_of(:user) }
     it { is_expected.to validate_presence_of(:event) }

@@ -13,27 +13,27 @@
 ActiveRecord::Schema.define(version: 2020_08_06_033721) do
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.integer "rows"
-    t.integer "columns"
+    t.string "name", null: false
+    t.integer "rows", null: false
+    t.integer "columns", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "reserves", force: :cascade do |t|
+  create_table "reservations", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "event_id", null: false
     t.string "seat_code", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_reserves_on_event_id"
-    t.index ["seat_code", "event_id"], name: "index_reserves_on_seat_code_and_event_id", unique: true
-    t.index ["user_id"], name: "index_reserves_on_user_id"
+    t.index ["event_id"], name: "index_reservations_on_event_id"
+    t.index ["seat_code", "event_id"], name: "index_reservations_on_seat_code_and_event_id", unique: true
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "name", null: false
+    t.string "email", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -14,7 +14,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'rspec-benchmark'
+  gem 'simplecov', require: false
 end
 
 group :development, :test do

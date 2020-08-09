@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
-  factory :reserve do
+  factory :reservation do
     user
     event
     seat_code { 'A1' }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Reserve < ApplicationRecord
+class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :event
 

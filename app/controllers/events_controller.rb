@@ -15,6 +15,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def best_seat
+
+  end
+
   private
 
   def event_params
