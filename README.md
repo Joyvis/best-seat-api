@@ -1,24 +1,17 @@
-# README
+# Best Seat API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What does this API?
 
-Things you may want to cover:
+It is a simple application find the best seat (close to front and middle) in an event.
 
-* Ruby version
+When you create an event you have to specify how many row and columns of chair the event will have and then the API will be able to find and show the best seat available.
 
-* System dependencies
+## How to run?
 
-* Configuration
+To run this application you just need to run some commands to prepare the database and start the server.
 
-* Database creation
+```
+rake db:create db:migrate
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails s -p 4000
+```
