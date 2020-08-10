@@ -2,10 +2,9 @@
 
 FactoryBot.define do
   factory :reservation do
-    user
     event
-    seat_code { 'A1' }
+    seat_code { 'A3' }
     row { 1 }
-    column { 1 }
+    column { 3 }
   end
 end

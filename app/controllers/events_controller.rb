@@ -15,8 +15,16 @@ class EventsController < ApplicationController
     end
   end
 
-  def best_seat
+  def best_seats
+    event = Event.find(params[:id])
+    result = Events::ListBestSeat.call(event: event,
+                                       quantity: params[:quantity].to_i)
 
+    if result.success?
+      render json: result.best_seats
+    else
+      render json: []
+    end
   end
 
   private
