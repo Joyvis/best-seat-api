@@ -80,6 +80,10 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    interactor (3.1.2)
+    interactor-rails (2.2.1)
+      interactor (~> 3.0)
+      rails (>= 4.2)
     json (2.3.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -119,6 +123,8 @@ GEM
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.2)
@@ -228,12 +234,14 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   factory_bot_rails
+  interactor-rails (~> 2.0)
   listen
   pry
   pry-byebug
   pry-highlight
   pry-rails
   puma (~> 4.1)
+  rack-cors
   rails (~> 6.0.2, >= 6.0.2.2)
   rails_best_practices
   rspec-rails
