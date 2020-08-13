@@ -14,6 +14,8 @@ module Reservations
       private
 
       def normalize_params(reservations_params)
+        return reservations_params if reservations_params.is_a?(Array)
+
         reservations_params.require(:reservations).map do |param|
           param.permit(:row, :column)
         end

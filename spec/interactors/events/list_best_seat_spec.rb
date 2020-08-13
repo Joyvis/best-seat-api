@@ -10,7 +10,8 @@ describe Events::ListBestSeat, type: :interactor do
           [
             Events::ListBestSeatStep::CreateEventArrayModel,
             Events::ListBestSeatStep::FindPerfectSeat,
-            Events::ListBestSeatStep::FindBestSeatByScore
+            Events::ListBestSeatStep::FindBestSeatByScore,
+            Events::ListBestSeatStep::SerializeSeats
           ]
         )
       )

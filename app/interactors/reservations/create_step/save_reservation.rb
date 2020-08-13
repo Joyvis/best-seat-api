@@ -22,7 +22,7 @@ module Reservations
       def send_error(error)
         context.errors = {
           errors: {
-            error.class.name.demodulize.underscore => [error.to_s]
+            base: [ I18n.t('reservation.seats_are_not_available') ]
           }
         }
 

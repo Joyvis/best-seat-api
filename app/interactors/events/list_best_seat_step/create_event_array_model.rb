@@ -29,7 +29,12 @@ module Events
       end
 
       def send_error
-        context.errors = { errors: [:there_are_not_enough_seats] }
+        context.errors = {
+          errors: {
+            base: [ I18n.t('reservation.there_are_not_enough_seats') ]
+          }
+        }
+
         context.fail!
       end
     end

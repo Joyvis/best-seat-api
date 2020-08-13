@@ -14,6 +14,8 @@ module Events
       private
 
       def normalize_params(event_params)
+        return event_params if event_params.is_a?(Hash)
+
         event_params.require(:event).permit(:name, :rows, :columns)
       end
     end

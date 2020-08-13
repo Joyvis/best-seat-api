@@ -70,7 +70,12 @@ module Events
       end
 
       def send_error
-        context.errors = { errors: [:no_best_seat_available] }
+        context.errors = {
+          errors: {
+            base: [ I18n.t('reservation.no_best_seat_available') ]
+          }
+        }
+
         context.fail!
       end
     end
