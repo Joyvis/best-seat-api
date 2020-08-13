@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Events::CreateReservation, type: :interactor do
+describe Reservations::Create, type: :interactor do
   describe '.call' do
     let(:event) { create(:event) }
     subject do
