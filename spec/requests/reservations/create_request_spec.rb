@@ -33,4 +33,13 @@ describe 'creating reservations', type: :request do
       expect(parsed_response[:errors]).to be_present
     end
   end
+
+  context 'when event does not exist' do
+    let(:params) { [] }
+    let(:event_id) { 'aaaazz' }
+
+    it 'returns a not found error' do
+      expect(response).to have_http_status(:not_found)
+    end
+  end
 end
