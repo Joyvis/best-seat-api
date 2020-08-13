@@ -29,7 +29,7 @@ module Events
       end
 
       def send_error
-        context.error = :there_are_not_enough_seats
+        context.errors = { errors: [:there_are_not_enough_seats] }
         context.fail!
       end
     end

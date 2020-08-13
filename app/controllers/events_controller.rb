@@ -6,30 +6,28 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(event_params)
+    result = Events::Create.call(event_params: params)
 
-    if event.save
-      render json: event.attributes, status: :created
+    if result.success?
+      render json: result.event.to_json, status: :created
     else
-      render json: event.errors, status: :unprocessable_entity
+      render json: result.errors, status: :unprocessable_entity
     end
   end
 
   def best_seats
-    event = Event.find(params[:id])
     result = Events::ListBestSeat.call(event: event,
                                        quantity: params[:quantity].to_i)
-
     if result.success?
-      render json: result.best_seats
+      render json: result.seats.to_json
     else
-      render json: []
+      render json: result.errors
     end
   end
 
   private
 
-  def event_params
-    params.require(:event).permit(:name, :rows, :columns)
+  def event
+    Event.find(params[:id])
   end
 end

@@ -2,13 +2,13 @@
 
 class ReservationsController < ApplicationController
   def create
-    result = Events::CreateReservation
-             .call(event: event, reservations_params: reservations_params)
+    result = Reservations::Create
+             .call(event: event, reservations_params: params)
 
     if result.success?
-      render json: result.reservations, status: :created
+      render json: result.reservations.to_json, status: :created
     else
-      render json: { error: result.error }, status: :unprocessable_entity
+      render json: result.errors, status: :unprocessable_entity
     end
   end
 
@@ -16,10 +16,5 @@ class ReservationsController < ApplicationController
 
   def event
     Event.find(params[:event_id])
-  end
-
-  def reservations_params
-    params
-      .permit(reservations: %i[row column])
   end
 end

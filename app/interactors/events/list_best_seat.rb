@@ -6,6 +6,7 @@ module Events
 
     organize ListBestSeatStep::CreateEventArrayModel,
              ListBestSeatStep::FindPerfectSeat,
-             ListBestSeatStep::FindBestSeatByScore
+             ListBestSeatStep::FindBestSeatByScore,
+             ListBestSeatStep::SerializeSeats
   end
 end

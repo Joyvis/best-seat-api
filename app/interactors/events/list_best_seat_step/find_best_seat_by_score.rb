@@ -59,24 +59,18 @@ module Events
 
       def location(index, row_index)
         (0..event.columns).to_a[index, quantity].map do |column|
-          {
+          reservation_attributes = {
             column: column + 1,
             row: row_index + 1,
-            seat_code: seat_code(row_index, column + 1)
+            event_id: event.id
           }
+
+          Reservation.new(reservation_attributes).tap(&:valid?)
         end
       end
 
-      def seat_code(row, column)
-        "#{seat_code_dictionary(row)}#{column}"
-      end
-
-      def seat_code_dictionary(index)
-        ('A'..'Z').to_a[index]
-      end
-
       def send_error
-        context.error = :no_best_seat_available
+        context.errors = { errors: [:no_best_seat_available] }
         context.fail!
       end
     end

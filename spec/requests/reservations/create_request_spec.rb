@@ -30,7 +30,7 @@ describe 'creating reservations', type: :request do
 
     it 'reservations have not been created' do
       expect(response).to have_http_status(:unprocessable_entity)
-      expect(parsed_response[:error]).to be_present
+      expect(parsed_response[:errors]).to be_present
     end
   end
 end

@@ -49,8 +49,7 @@ describe 'listing best seats', type: :request do
 
         it 'best seats have not been listed' do
           expect(response).to have_http_status(:ok)
-          expect(parsed_response).to be_a(Array)
-          expect(parsed_response).to be_empty
+          expect(parsed_response).not_to be_empty
         end
       end
     end
