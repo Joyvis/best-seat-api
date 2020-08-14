@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     if result.success?
       render json: result.seats.to_json
     else
-      render json: result.errors
+      render json: result.errors, status: :unprocessable_entity
     end
   end
 

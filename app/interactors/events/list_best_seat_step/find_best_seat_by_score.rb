@@ -23,7 +23,7 @@ module Events
           seat_score = scan_row(row, row_index)
           row_scores.reverse_merge!(seat_score)
         end
-        # binding.pry
+
         row_scores
       end
 

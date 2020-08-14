@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'listing best seats', type: :request do
-  let(:event) { create(:event) }
+  let(:event) { create(:event, rows: 11, columns: 22) }
   let(:reservations) { nil }
   let(:parsed_response) { JSON.parse(response.body, symbolize_names: true) }
 
@@ -16,7 +16,7 @@ describe 'listing best seats', type: :request do
     let(:event_id) { event.id }
 
     context 'and a valid quatity is sent' do
-      let(:quantity) { 2 }
+      let(:quantity) { 3 }
 
       context 'and reservations was priviously created' do
         let(:reservations) { create(:reservation, event: event) }
