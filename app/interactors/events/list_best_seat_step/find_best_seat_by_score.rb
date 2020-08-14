@@ -9,6 +9,8 @@ module Events
                to: :context
 
       def call
+        send_error if quantity.zero? || quantity.negative?
+
         scores = calculate_score
         send_error if scores.blank?
 
