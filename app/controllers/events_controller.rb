@@ -15,6 +15,11 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    event = Event.find(params[:id])
+    render json: EventSerializer.new(event).to_json
+  end
+
   def best_seats
     result = Events::ListBestSeat.call(event: event,
                                        quantity: params[:quantity].to_i)
