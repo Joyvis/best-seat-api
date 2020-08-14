@@ -13,16 +13,16 @@ module Reservations
         end
 
         context.reservations = event.reservations
-      rescue ActiveRecord::RecordInvalid => error
-        send_error(error)
+      rescue ActiveRecord::RecordInvalid
+        send_error
       end
 
       private
 
-      def send_error(error)
+      def send_error
         context.errors = {
           errors: {
-            base: [ I18n.t('reservation.seats_are_not_available') ]
+            base: [I18n.t('reservation.seats_are_not_available')]
           }
         }
 

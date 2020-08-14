@@ -31,7 +31,7 @@ module Events
       def send_error
         context.errors = {
           errors: {
-            base: [ I18n.t('reservation.there_are_not_enough_seats') ]
+            base: [I18n.t('reservation.there_are_not_enough_seats')]
           }
         }
 

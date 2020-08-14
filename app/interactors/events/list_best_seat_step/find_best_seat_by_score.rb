@@ -23,7 +23,7 @@ module Events
           seat_score = scan_row(row, row_index)
           row_scores.reverse_merge!(seat_score)
         end
-
+        # binding.pry
         row_scores
       end
 
@@ -52,7 +52,7 @@ module Events
 
       def calculate_column_score(counter)
         column_score = perfect_seat[:column] - counter
-        column_score * -1 if column_score.negative?
+        column_score *= -1 if column_score.negative?
 
         column_score
       end
@@ -72,7 +72,7 @@ module Events
       def send_error
         context.errors = {
           errors: {
-            base: [ I18n.t('reservation.no_best_seat_available') ]
+            base: [I18n.t('reservation.no_best_seat_available')]
           }
         }
 

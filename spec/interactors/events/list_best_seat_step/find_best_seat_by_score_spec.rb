@@ -11,8 +11,8 @@ describe Events::ListBestSeatStep::FindBestSeatByScore, type: :interactor do
     end
 
     context 'with valid parameters' do
-      let(:event) { create(:event) }
-      let(:perfect_seat) { { row: 0, column: 3 } }
+      let(:event) { create(:event, rows: 5, columns: 5) }
+      let(:perfect_seat) { { row: 0, column: 2 } }
       let(:event_array_model) do
         Array.new(event.rows) { Array.new(event.columns, :free) }
       end
@@ -22,6 +22,8 @@ describe Events::ListBestSeatStep::FindBestSeatByScore, type: :interactor do
 
         it 'best seat has been found' do
           expect(subject.best_seats).to be_a(Array)
+          expect(subject.best_seats.first.seat_code).to eq('A2')
+          expect(subject.best_seats[1].seat_code).to eq('A3')
           expect(subject.best_seats.count).to eq(quantity)
           expect(subject.success?).to be_truthy
         end
@@ -32,6 +34,7 @@ describe Events::ListBestSeatStep::FindBestSeatByScore, type: :interactor do
 
         it 'best seat has been found' do
           expect(subject.best_seats).to be_a(Array)
+          expect(subject.best_seats.first.seat_code).to eq('A3')
           expect(subject.best_seats.count).to eq(quantity)
           expect(subject.success?).to be_truthy
         end
