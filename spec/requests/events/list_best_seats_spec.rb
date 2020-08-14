@@ -48,7 +48,7 @@ describe 'listing best seats', type: :request do
         end
 
         it 'best seats have not been listed' do
-          expect(response).to have_http_status(:ok)
+          expect(response).to have_http_status(:unprocessable_entity)
           expect(parsed_response).not_to be_empty
         end
       end

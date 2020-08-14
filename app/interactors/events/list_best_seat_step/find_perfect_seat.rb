@@ -15,7 +15,7 @@ module Events
 
       def perfect_seat
         seat_column = event_array_model[0].count.to_f / 2
-        seat_column -= 1 if (seat_column % 1).zero?
+        seat_column -= 1 unless (seat_column % 1).zero?
 
         { row: 0, column: seat_column.ceil - 1 }
       end
