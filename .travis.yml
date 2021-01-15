@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker pull joyvis/best-seat-api
+  - docker pull joyvis/best-seat-api:0.0.1.RELEASE
   - docker run -d -p 127.0.0.1:4000:4000 joyvis/best-seat-api:0.0.1.RELEASE
   - docker ps -a
   - docker run joyvis/best-seat-api:0.0.1.RELEASE /bin/sh -c "cd /app; bundle exec rspec spec --format documentation"
