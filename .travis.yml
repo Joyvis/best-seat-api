@@ -14,5 +14,4 @@ before_install:
 script:
   - bundle exec rspec spec --format documentation
   - bundle exec rubocop .
-  - bundle exec rails_best_practices .
   - bundle exec rubycritic

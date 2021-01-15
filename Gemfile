@@ -25,7 +25,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-highlight'
   gem 'pry-rails'
-  gem 'rails_best_practices'
   gem 'rubocop'
   gem 'rubycritic'
 end
