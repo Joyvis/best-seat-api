@@ -14,4 +14,4 @@ before_install:
 script:
   - bundle exec rspec spec --format documentation
   - bundle exec rubocop .
-  - bundle exec rubycritic
+  - bundle exec rubycritic --mode-ci --no-browser --minimum-score 90
