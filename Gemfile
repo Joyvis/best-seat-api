@@ -26,6 +26,8 @@ group :development, :test do
   gem 'pry-highlight'
   gem 'pry-rails'
   gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'rubycritic'
 end
 
