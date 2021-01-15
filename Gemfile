@@ -25,12 +25,13 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-highlight'
   gem 'pry-rails'
+  gem 'rails_best_practices'
+  gem 'rubocop'
+  gem 'rubycritic'
 end
 
 group :development do
   gem 'listen'
-  gem 'rails_best_practices'
-  gem 'rubocop'
   gem 'spring'
   gem 'spring-watcher-listen'
 end
